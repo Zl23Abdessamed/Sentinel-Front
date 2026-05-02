@@ -179,11 +179,25 @@ export interface WhisperWindow {
 export interface User {
   id: string;
   email: string;
-  role: "ADMIN" | "WORKER" | "MANAGER";
+  role:
+    | "ADMIN"
+    | "WORKER"
+    | "MANAGER"
+    | "REPORTER"
+    | "RESPONDER"
+    | "RSSI"
+    | "DPO"
+    | "HR_HEAD"
+    | "COMPLIANCE";
   name?: string;
+  /** Display string the backend returns alongside the FK */
+  institution?: string;
+  /** Display string */
+  department?: string;
+  organization_id?: string;
   department_id?: string;
   institution_id?: string;
-  created_at: string;
+  created_at?: string;
 }
 
 export interface Department {
@@ -310,7 +324,15 @@ export const sentinel = {
 
   auth: {
     signupAdmin: (email: string, password: string, name: string, institution?: string) =>
-      api.post<{ ok: boolean; user: User }>("/api/auth/admin-signup", { email, password, name, institution, role: "ADMIN" }),
+      api.post<{ ok: boolean; user: User; organization?: { id: string; name: string; slug: string } }>(
+        "/api/auth/admin-signup",
+        {
+          email,
+          password,
+          admin_name: name,
+          organization_name: institution ?? name,
+        },
+      ),
     login: (email: string, password: string) =>
       api.post<{ ok: boolean; user: User; expires_at: string }>("/api/auth/login", { email, password }),
     logout: () => api.post<{ ok: boolean }>("/api/auth/logout"),
