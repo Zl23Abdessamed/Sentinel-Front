@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   Shield,
+  ShieldAlert,
   MessageCircle,
   Sparkles,
   FileSearch,
@@ -27,6 +28,7 @@ const NAV: { section: string; items: NavItem[] }[] = [
     items: [
       { href: "/intake", label: "Chat ARS", icon: MessageCircle },
       { href: "/dashboard", label: "Dashboard", icon: Shield },
+      { href: "/crisis", label: "Mode Crise", icon: ShieldAlert },
       { href: "/detection", label: "Détection", icon: Radar },
       { href: "/ai-classify", label: "Théâtre IA", icon: Sparkles },
     ],
