@@ -246,6 +246,11 @@ export const sentinel = {
       `/api/incident/${id}/close`,
       { actor },
     ),
+  report: (id: string, actor = "system") =>
+    api.post<{ ok: boolean; incident_id: string; report: string }>(
+      `/api/incident/${id}/report`,
+      { actor },
+    ),
   escalate: (id: string, actor = "system", reason = "") =>
     api.post<{ ok: boolean; incident_id: string; status: IncidentStatus }>(
       `/api/incident/${id}/escalate`,
@@ -266,7 +271,11 @@ export const sentinel = {
   whispers: {
     list: () => api.get<{ count: number; windows: WhisperWindow[] }>("/api/whispers"),
     get: (id: string) => api.get<WhisperWindow>(`/api/whisper/${id}`),
+    signal: (id: string, payload: unknown) => api.post<{ ok: boolean; signal_id: string }>(`/api/whisper/${id}/signal`, payload),
   },
+
+  agent: (query: string, context?: unknown) => api.post<{ response: string }>("/api/agent", { query, context }),
+  bulletin: () => api.post<{ bulletin: string }>("/api/bulletin"),
 
   unlock: {
     state: (id: string) =>
@@ -301,7 +310,7 @@ export const sentinel = {
 
   auth: {
     signupAdmin: (email: string, password: string, name: string, institution?: string) =>
-      api.post<{ ok: boolean; user: User }>("/api/auth/signup-admin", { email, password, name, institution, role: "ADMIN" }),
+      api.post<{ ok: boolean; user: User }>("/api/auth/admin-signup", { email, password, name, institution, role: "ADMIN" }),
     login: (email: string, password: string) =>
       api.post<{ ok: boolean; user: User; expires_at: string }>("/api/auth/login", { email, password }),
     logout: () => api.post<{ ok: boolean }>("/api/auth/logout"),
