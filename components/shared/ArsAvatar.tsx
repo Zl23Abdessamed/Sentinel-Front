@@ -1,8 +1,6 @@
 import { cn } from "@/lib/utils";
 
-// ARS avatar = circular gradient (amber → cyan), white shield-mic glyph,
-// status dot bottom-right. Rotates slowly when "thinking" (the gradient
-// container spins; the glyph is on a separate z-layer so it stays still).
+
 
 interface ArsAvatarProps {
   size?: number;
