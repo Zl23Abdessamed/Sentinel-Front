@@ -13,6 +13,8 @@ import {
   Radar,
   type LucideIcon,
 } from "lucide-react";
+import { User } from 'lucide-react';
+
 import { cn } from "@/lib/utils";
 
 interface NavItem {
@@ -26,6 +28,7 @@ const NAV: { section: string; items: NavItem[] }[] = [
   {
     section: "Travail",
     items: [
+      { href: "/admin/users", label: "Departements/Users", icon: User  },
       { href: "/intake", label: "Chat ARS", icon: MessageCircle },
       { href: "/dashboard", label: "Dashboard", icon: Shield },
       { href: "/crisis", label: "Mode Crise", icon: ShieldAlert },
@@ -43,7 +46,6 @@ const NAV: { section: string; items: NavItem[] }[] = [
     section: "Système",
     items: [
       { href: "/notifications", label: "Notifications", icon: Bell },
-      { href: "/settings", label: "Paramètres", icon: Settings },
     ],
   },
 ];
@@ -119,18 +121,6 @@ export function SidebarNav({ user, className }: SidebarNavProps) {
           </div>
         ))}
       </div>
-
-      {user && (
-        <div className="p-3 border-t border-border-soft flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-vault to-whisper shrink-0" />
-          <div className="min-w-0 flex-1">
-            <div className="text-[13px] truncate">{user.name}</div>
-            <div className="text-[10px] font-mono text-text-dim uppercase tracking-wider">
-              {user.role}
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   );
 }
