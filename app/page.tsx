@@ -289,7 +289,7 @@ function Navbar() {
             System Live
           </span>
           <a
-            href="/auth/signup"
+            href="/auth/login"
             className="px-4 py-2 bg-sentinel text-black font-mono text-[12px] font-bold uppercase tracking-wider rounded-md hover:bg-amber-400 transition-colors"
           >
             Login
@@ -318,11 +318,17 @@ function Navbar() {
                 {l.label}
               </button>
             ))}
-            <div className="pt-3 border-t border-border-soft mt-2">
+            <div className="pt-3 border-t border-border-soft mt-2 flex flex-col gap-2">
+              <a
+                href="/auth/login"
+                className="block text-center px-4 py-2.5 bg-sentinel text-black font-mono text-[12px] font-bold uppercase tracking-wider rounded-md"
+              >
+                Login
+              </a>
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); handleNav("#contact"); }}
-                className="block text-center px-4 py-2.5 bg-sentinel text-black font-mono text-[12px] font-bold uppercase tracking-wider rounded-md"
+                className="block text-center px-4 py-2.5 border border-border-soft text-text font-mono text-[12px] font-bold uppercase tracking-wider rounded-md hover:bg-surface-2"
               >
                 Request Demo
               </a>
@@ -366,11 +372,11 @@ function Hero() {
       <div className="relative z-10 max-w-[900px] mx-auto px-6 text-center">
         <SectionLabel>▸ Cybersecurity Platform · Algeria · Law 18-07 Compliant</SectionLabel>
 
-        <h1 className="text-[72px] md:text-[96px] font-extrabold leading-[0.95] tracking-[-0.03em] mb-6 bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent">
+        <h1 className="text-[48px] sm:text-[64px] md:text-[96px] font-extrabold leading-[0.95] tracking-[-0.03em] mb-6 bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent">
           SENTINEL.DZ
         </h1>
 
-        <p className="text-[20px] md:text-[24px] font-semibold text-sentinel mb-4 tracking-tight">
+        <p className="text-[18px] sm:text-[20px] md:text-[24px] font-semibold text-sentinel mb-4 tracking-tight">
           Turn Fearful Employees Into Active Threat Sensors
         </p>
 
@@ -438,10 +444,10 @@ function Problem() {
         }}
       />
       <div className="relative z-10 max-w-[1280px] mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
             <SectionLabel>▸ The Core Problem</SectionLabel>
-            <h2 className="text-[48px] font-extrabold leading-[1.05] tracking-[-0.025em] text-text mb-6">
+            <h2 className="text-[36px] sm:text-[42px] md:text-[48px] font-extrabold leading-[1.05] tracking-[-0.025em] text-text mb-6">
               The Silent<br />
               <span className="text-p1">Fracture</span>
             </h2>
@@ -534,7 +540,7 @@ function Features() {
         <div className="mb-16">
           <div className="mb-8">
             <SectionLabel>▸ Category 01 · AI Detection</SectionLabel>
-            <h2 className="text-[40px] font-extrabold tracking-[-0.02em] text-text mb-3">
+            <h2 className="text-[32px] md:text-[40px] font-extrabold tracking-[-0.02em] text-text mb-3">
               Proactive AI Detection
             </h2>
             <p className="text-[15px] text-text-muted max-w-xl">
@@ -542,7 +548,7 @@ function Features() {
               zero fatigue, zero blind spots.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {FEATURES_AI.map((f) => <FeatureCard key={f.title} feature={f} />)}
           </div>
         </div>
@@ -551,7 +557,7 @@ function Features() {
         <div className="mb-16">
           <div className="mb-8">
             <SectionLabel>▸ Category 02 · Human Layer</SectionLabel>
-            <h2 className="text-[40px] font-extrabold tracking-[-0.02em] text-text mb-3">
+            <h2 className="text-[32px] md:text-[40px] font-extrabold tracking-[-0.02em] text-text mb-3">
               Frictionless & Fearless Reporting
             </h2>
             <p className="text-[15px] text-text-muted max-w-xl">
@@ -559,7 +565,7 @@ function Features() {
               silent — across every channel employees already use.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {FEATURES_HUMAN.map((f) => <FeatureCard key={f.title} feature={f} />)}
           </div>
         </div>
@@ -568,7 +574,7 @@ function Features() {
         <div>
           <div className="mb-8">
             <SectionLabel>▸ Category 03 · Automated Response</SectionLabel>
-            <h2 className="text-[40px] font-extrabold tracking-[-0.02em] text-text mb-3">
+            <h2 className="text-[32px] md:text-[40px] font-extrabold tracking-[-0.02em] text-text mb-3">
               Automated Response & Compliance
             </h2>
             <p className="text-[15px] text-text-muted max-w-xl">
@@ -576,7 +582,7 @@ function Features() {
               is built in — not bolted on.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-4 max-w-[860px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[860px]">
             {FEATURES_RESPONSE.map((f) => <FeatureCard key={f.title} feature={f} />)}
           </div>
         </div>
@@ -601,7 +607,7 @@ function HowItWorks() {
       <div className="relative z-10 max-w-[1280px] mx-auto px-6">
         <div className="text-center mb-14">
           <SectionLabel>▸ The Flow</SectionLabel>
-          <h2 className="text-[48px] font-extrabold tracking-[-0.025em] text-text mb-4">
+          <h2 className="text-[36px] md:text-[48px] font-extrabold tracking-[-0.025em] text-text mb-4">
             How It Works
           </h2>
           <p className="text-[16px] text-text-muted max-w-lg mx-auto">
@@ -621,7 +627,7 @@ function HowItWorks() {
             }}
           />
 
-          <div className="grid md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 md:gap-4 lg:gap-6">
             {HOW_IT_WORKS.map((step, i) => (
               <div key={step.step} className="flex flex-col items-center text-center">
                 <div className="relative w-14 h-14 rounded-xl border border-sentinel/40 bg-sentinel-dim flex items-center justify-center text-sentinel mb-4 z-10">
@@ -650,10 +656,10 @@ function About() {
   return (
     <section id="about" className="py-20 border-t border-border-soft">
       <div className="max-w-[1280px] mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
           <div>
             <SectionLabel>▸ About Us</SectionLabel>
-            <h2 className="text-[48px] font-extrabold tracking-[-0.025em] text-text leading-[1.05] mb-6">
+            <h2 className="text-[36px] md:text-[48px] font-extrabold tracking-[-0.025em] text-text leading-[1.05] mb-6">
               Built for Algeria.<br />
               <span className="text-sentinel">Built to Last.</span>
             </h2>
@@ -675,7 +681,7 @@ function About() {
               or role.
             </p>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { label: "100% Sovereign", desc: "No foreign cloud dependency" },
                 { label: "AI-Native", desc: "Debate-based classification engine" },
@@ -700,7 +706,7 @@ function About() {
             <h3 className="font-mono text-[12px] uppercase tracking-[0.12em] text-text-dim mb-6">
               The Team
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {TEAM.map((member) => (
                 <div
                   key={member.name}
@@ -752,7 +758,7 @@ function Footer() {
   return (
     <footer className="border-t border-border-soft bg-surface/50">
       <div className="max-w-[1280px] mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-4 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">

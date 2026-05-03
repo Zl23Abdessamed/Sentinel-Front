@@ -2,7 +2,7 @@
 // so every request goes out with `credentials: 'include'`. The browser sends
 // the cookie back automatically — no Authorization header to manage from JS.
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8081";
 
 export class ApiError extends Error {
   status: number;

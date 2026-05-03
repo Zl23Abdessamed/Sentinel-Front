@@ -5,7 +5,7 @@
 // All real WebSocket work happens in the browser; this module is safe to
 // import from server components because instantiation is lazy.
 
-const WS_URL = process.env.NEXT_PUBLIC_WS_URL ?? "ws://localhost:8080/ws";
+const WS_URL = process.env.NEXT_PUBLIC_WS_URL ?? "ws://localhost:8081/ws";
 
 // Application-level event types broadcast by the Go backend's ws.Hub. Lifecycle
 // pseudo-events use a leading underscore so callers can subscribe to connection
